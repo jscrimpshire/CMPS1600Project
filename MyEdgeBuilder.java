@@ -62,6 +62,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		root.add(new Edge(choice, nextNode));
 	}
 	
+	//Macey
 	@BuilderMethod
 	public void atGreatHallLocationEdges() {
 		var node = get(MyChoiceLabels.atGreatHall.toString());
@@ -71,6 +72,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice, nextNode));
 	}
 	
+	//Macey + Jackson
 	@BuilderMethod
 	public void startingToolEdges() {
 		var node = get(MyChoiceLabels.merlinToolSpeech.toString());
@@ -87,6 +89,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice3, nextNode3));
 	}
 	
+	//Macey
 	@BuilderMethod
 	public void specialQuestEdges() {
 		var node = get(MyChoiceLabels.beggarQuest.toString());
@@ -99,6 +102,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice2, nextNode2));
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void ignoreEdges() {
 		var node = get(MyChoiceLabels.refuse.toString());
@@ -107,6 +111,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice1, nextNode1));
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void listenEdges() {
 		var node = get(MyChoiceLabels.accept.toString());
@@ -121,6 +126,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void questContEdges() {
 		var node = get(MyChoiceLabels.acceptedrequest.toString());
@@ -137,6 +143,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void contJourneyEdges() {
 		var node = get(myChoiceLabels.continuejourney.toString());
@@ -160,6 +167,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void hintEdges() {
 		var node = get(myChoiceLabels.hint.toString());
@@ -168,6 +176,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge (choice1, nextNode1));
 	}
 	
+	//Jackson
 	@BuilderMethod
 	public void exitEdges() {
 		var node = get(MyChoiceLabels.exitCity.toString());
@@ -189,6 +198,89 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	}
 	
+	//Jackson
 	@BuilderMethod
-	public
+	public void toForestEdges() {
+		var node = get(MyChoiceLabels.toForest());
+		
+		var choice1 = new DialogChoice("Go left");
+		var nextNode1 = get(MyChoiceLabels.leftForest.toString());
+		node.add(new Edge (choice1, nextNode1));
+		
+		var choice2 = new DialogChoice("Go right");
+		var nextNode2 = get(MyChoiceLabels.rightForest.toString());
+		node.add(new Edge (choice2, nextNode2));
+	}
+	
+	//Jackson
+	@BuilderMethod
+	public void leftForest() {
+		var node = get(MyChoiceLabels.leftForest.toString());
+		
+		var choice1 = new DialogChoice ("Duel the knight");
+		var nextNode1 = get(MyChoiceLabels.duel.toString());
+		node.add(new Edge (choice1, nextNode1));
+		
+		var choice2 = new DialogChoice("Retreat to the City");
+		var nextNode2 = get(MyChoiceLabels.city2.toString());
+		node.add(new Edge (choice2, nextNode2));
+	}
+	
+	//Jackson
+	@BuilderMethod
+	public void duelKnight() {
+		var node = get(MyChoiceLabels.duel.toString());
+		
+		var choice1 = new DialogChoice ("Use my sword");
+		var nextNode1 = get(MyChoiceLabels.city2.toString());
+		node.add(new Edge (choice1, nextNode1));
+		
+		var choice2 = new DialogChoice ("Use my compass");
+		var nextNode2 = get(MyChoicelabels.death.toString());
+		node.add(new Edge (choice 2, nextNode2))
+		
+		var choice3 = new DialogChoice ("Use my spellbook");
+		node.add(new Edge (choice 3, nextNode1));
+	}
+	
+	//Jackson
+	@BuilderMethod
+	public void rightForest() {
+		var node = get(MyChoiceLabels.rightForest.toString());
+		
+		var choice1 = new DialogChoice ("Fight the troll");
+		var nextNode1 = get(MyChoiceLabels.fight.toString());
+		node.add(new Edge (choice1, nextNode1));
+		
+		var choice2 = new DialogChoice("Retreat to the City");
+		var nextNode2 = get(MyChoiceLabels.city2.toString());
+		node.add(new Edge (choice2, nextNode2));
+	}
+	
+	//Jackson
+	@BuilderMethod
+	public void fightTroll() {
+		var node = get(MyChoiceLabels.fight.toString());
+		
+		var choice1 = new DialogChoice ("Use my sword");
+		var nextNode1 = get(MyChoiceLabels.city2.toString());
+		node.add(new Edge (choice1, nextNode1));
+		
+		var choice2 = new DialogChoice ("Use my compass");
+		var nextNode2 = get(MyChoicelabels.death.toString());
+		node.add(new Edge (choice 2, nextNode2))
+		
+		var choice3 = new DialogChoice ("Use my spellbook");
+		node.add(new Edge (choice 3, nextNode1));
+	}
+	
+	//Jackson
+	@BuilderMethod
+	public void retreatToCity() {
+		var node = get(MyChoiceLabels.city2.toString());
+		
+		var choice1 = new DialogChoice ("Go to port");
+		var nextNode1 = get(MyChoiceLabels.port.toString());
+		node.add(new Edge (choice1, nextNode1));
+	}
 }
